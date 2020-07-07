@@ -10,7 +10,7 @@ import {
   OtherAlertCategoryWrapper,
 } from '../../__mocks__/notificationDrawerCategoryWrapper';
 import { alertItems } from '../../__mocks__/alertMock';
-import { Alert } from '@console/internal/components/monitoring';
+import { Alert } from '@console/internal/components/monitoring/types';
 
 type CriticalAlertCategoryWrapperProps = React.ComponentProps<typeof CriticalAlertCategoryWrapper>;
 let criticalAlertWrapperProps: CriticalAlertCategoryWrapperProps;
@@ -41,7 +41,10 @@ describe('Notification Drawer', () => {
       alertList: criticalAlertList,
       children: criticalAlerts,
     };
-    wrapper = shallow(<CriticalAlertCategoryWrapper {...criticalAlertWrapperProps} />);
+
+    beforeEach(() => {
+      wrapper = shallow(<CriticalAlertCategoryWrapper {...criticalAlertWrapperProps} />);
+    });
 
     it('find empty state if there is no critical alert in the list', () => {
       expect(wrapper.find(AlertEmptyState).exists()).toBe(true);
@@ -64,7 +67,10 @@ describe('Notification Drawer', () => {
       count: otherAlertList.length,
       alertList: otherAlertList,
     };
-    wrapper = shallow(<OtherAlertCategoryWrapper {...otherAlertWrapperProps} />);
+
+    beforeEach(() => {
+      wrapper = shallow(<OtherAlertCategoryWrapper {...otherAlertWrapperProps} />);
+    });
 
     it('group list should be expanded if there are non critical alerts', () => {
       expect(wrapper.prop('isExpanded')).toBe(true);

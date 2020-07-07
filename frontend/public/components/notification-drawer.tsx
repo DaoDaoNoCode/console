@@ -396,7 +396,7 @@ export const ConnectedNotificationDrawer_: React.FC<ConnectedNotificationDrawerP
           <NotificationDrawerGroupList>{notificationEntries}</NotificationDrawerGroupList>
         </NotificationDrawerBody>
       </NotificationDrawer>
-      <DrawerPanelBody noPadding />
+      <DrawerPanelBody hasNoPadding />
     </DrawerPanelContent>
   );
 
